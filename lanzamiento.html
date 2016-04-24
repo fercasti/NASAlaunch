@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Lanzamiento</title>
+<meta name="author" content="">
+
+<script src="https://aframe.io/releases/0.2.0/aframe.js"></script>
+<script src="https://github.com/donmccurdy/aframe-extras/blob/master/src/controls/universal-controls.js"></script>
+<script src="https://sandbox.donmccurdy.com/vr/aframe-extras.js"></script>
+</head>
+<body>  
+ <a-scene physics>
+
+
+ <a-grid static-body></a-grid>
+
+
+
+<a-entity id="road" geometry="primitive: plane; width: 70; height: 5" material="color: gray"
+            position="0 0.1 3" rotation="-90 0 0" >
+        </a-entity>
+
+<!-- <a-entity id="beamx" geometry="primitive: cylinder; radius-bottom: 20; radius-top: 10; height: 500"   position="-30 8 3" rotation="0 90 0" material="shader: flat; side: double; opacity: 0.2;
+color: #d9f300"></a-entity>
+-->
+
+  
+ 
+<!-- <a-entity position="0 0 -5" scale="0.5 0.5 0.5">
+          <a-model src="https://ucarecdn.com/5c813b85-b567-48e6-a6f6-c6e184bbbd03/">
+          </a-model>
+         
+        </a-entity>   -->
+
+
+<a-image id="cohete" src="images/cohete.png" rotation="0 90 0" position="-30 6 3"></a-image>
+
+
+
+
+
+<!-- Camera Wrap --> 
+ <a-entity id="camera" position="0 0 5"> 
+
+
+ <!-- Tower -->
+      <a-box id="tower"
+              color="#39BB82"
+              width="10" height="5" depth="6"
+              position="-30 2.5 -2"
+              static-body></a-box> 
+
+
+    <a-box id="platform2"
+             color="gray"
+             width="4" height="0.25" depth="4"
+          position="-23 2.5 -2"
+             velocity="0 0 0"
+             toggle-velocity="axis: y; min: 0.125; max: 5;"
+             static-body></a-box>
+
+  <!-- Animation -->  
+  <a-animation attribute="position" begin="navigate" easing="linear" to="0 3000 0" dur="120000"></a-animation> 
+
+  <a-animation attribute="position" begin="navigate2" easing="linear" to="0 3000 0" dur="120000"></a-animation> 
+   <!-- Camera -->
+
+  <a-entity camera universal-controls kinematic-body jump-ability="enableDoubleJump: false; distance: 3;" position="0 2.2 0"> 
+   <!-- Cursor --> 
+
+
+
+<a-entity cursor="fuse: true; timeout: 1; maxDistance: 1;" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: red" position="0 0 -2"></a-entity>  
+  </a-entity>        
+ </a-entity>
+  
+ <!-- Lighting and Background -->
+
+
+
+
+ <a-videosphere src="video1.mp4" radius="300"></a-videosphere>
+<a-sky src="sky_vue2.jpg" radius="600"></a-sky>
+<a-sky src="sky_vue-23.jpg" radius="700"></a-sky>
+<a-sky src="sky_vue-42.jpg" radius="800"></a-sky>
+<a-sky src="sky_vue-60.jpg" radius="900"></a-sky>
+<a-sky src="sky_vue2.jpg" radius="1000"></a-sky>
+<a-videosphere src="video3.mp4" radius="1200"></a-videosphere>
+<a-videosphere src="videofinal.mp4" radius="3500"></a-videosphere>
+</a-scene>
+
+<!-- <script language="javascript">
+document.querySelector('#cohete').addEventListener('click', function () {
+document.querySelector('#camera').emit('navigate');
+document.querySelector('#cohete').emit('navigate2');
+});
+</script>-->
+
+
+
+
+<script language="javascript">
+document.querySelector('#cohete').addEventListener('click', function () {
+document.querySelector('#camera').emit('navigate');
+});
+</script>
+
+</body>
+</html>
